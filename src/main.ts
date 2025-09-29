@@ -16,12 +16,16 @@ async function main() {
     return;
   }
 
-  if (args[0] === 'reset') {
-    createResetDeploy();
-    return;
-  } else {
-    addFileToDeploy(args[0]);
-    return;
+  switch (args[0]) {
+    case 'help':
+      usage();
+      return;
+    case 'reset':
+      createResetDeploy();
+      return;
+    default:
+      addFileToDeploy(args[0]);
+      return;
   }
 }
 

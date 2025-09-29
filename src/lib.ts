@@ -12,6 +12,7 @@ export async function createResetDeploy() {
 async function tryGetRootPath(filePath: string): Promise<string> {
   if (filePath === '/' || '') {
     console.error('Could not find root directory. Does "project.json" exist in the project?');
+    process.exit(-1);
   }
 
   const files = await fs.readdir(filePath)
